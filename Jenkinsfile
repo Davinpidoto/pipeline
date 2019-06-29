@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     try {
-                      docker.image('mysql:5').withRun('-e MYSQL_ROOT_PASSWORD=password -p 3306:3306') { c ->
+                      docker.image('mysql:5.7').withRun('-e MYSQL_ROOT_PASSWORD=password -p 3306:3306') { c ->
                               sh './gradlew clean test --no-daemon'
                           }
                     } finally {
