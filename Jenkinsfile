@@ -9,7 +9,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                script {
+                    try {
+                        sh './gradlew clean test --no-daemon'
+                    } finally {
+                        junit '**/build/test-results/test/*.xml'
+                    }
+                }
             }
         }
         stage('Deploy') {
