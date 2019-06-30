@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     try {
-                      docker.image('openjdk').withRun().inside("-v /home/jenkins/:/") { c ->
+                      docker.image('gradle:5.4.1-jdk8').withRun().inside("-v /home/jenkins/:/") { c ->
                               sh './gradlew clean test --no-daemon'
                           }
                     } finally {
