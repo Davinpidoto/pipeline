@@ -11,8 +11,8 @@ pipeline {
             steps {
                 script {
                     try {
-                      docker.image('gradle:5.4.1-jdk8').withRun().inside("-v /home/jenkins/:/") { c ->
-                              sh 'echo jave -version'
+                      docker.image('openjdk').withRun().inside("-v /home/jenkins/:/") { c ->
+                              sh 'echo java -version'
                           }
                     } finally {
 //                        junit '**/build/test-results/test/*.xml'
