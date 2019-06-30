@@ -12,10 +12,10 @@ pipeline {
                 script {
                     try {
                       docker.image('gradle:5.4.1-jdk8').withRun().inside("-v /home/jenkins/:/") { c ->
-                              sh './gradlew clean test --no-daemon'
+                              sh 'echo jave -version'
                           }
                     } finally {
-                        junit '**/build/test-results/test/*.xml'
+//                        junit '**/build/test-results/test/*.xml'
                     }
                 }
             }
