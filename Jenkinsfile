@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     try {
-                      docker.image('openjdk').withRun().inside("-v /home/jenkins/:/") { c ->
+                      docker.image('openjdk').inside("-v /home/jenkins/:/") { c ->
                               sh 'echo java -version'
                           }
                     } finally {
