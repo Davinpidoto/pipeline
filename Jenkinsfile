@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     try {
-                      docker.image('openjdk').inside("-v ${PWD}:/project") { c ->
+                      docker.image('openjdk').inside("-v $WORKSPACE:/project") { c ->
                               sh './project/gradlew tasks'
                           }
                     } finally {
