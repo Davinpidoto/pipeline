@@ -12,7 +12,7 @@ pipeline {
                 script {
                     try {
                       docker.image('openjdk').inside("-v /home/jenkins/:/project") { c ->
-                              sh 'cd project; ./gradlew tasks'
+                              sh 'cd /project; ./gradlew tasks'
                           }
                     } finally {
 //                        junit '**/build/test-results/test/*.xml'
