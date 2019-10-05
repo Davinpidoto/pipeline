@@ -10,6 +10,6 @@ services:
   app:
     image: openjdk:8
     volumes:
-      - /var/lib/jenkins/workspace/Test_Pipeline_develop:/project
+      -  $WORKSPACE:/project
     links:
       - db
