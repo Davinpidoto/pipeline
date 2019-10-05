@@ -10,12 +10,15 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    try {
-                        sh 'docker-compose up -d'
-                        sh '/project/gradlew test'
-                        sh 'docker-compose down'
-                    } finally {
-                        junit '**/build/test-results/test/*.xml'
+                    withEnv(["WORK=${WORKSPACE}"]) {
+                        try {
+                            sh 'docker-compose up -d'
+                            sh '/project/gradlew test'
+                            sh 'docker-compose down'
+                        }
+                        finally {
+                            junit '**/build/test-results/test/*.xml'
+                        }
                     }
                 }
             }
