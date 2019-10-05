@@ -12,6 +12,7 @@ pipeline {
                 script {
                     withEnv(["WORK=${WORKSPACE}"]) {
                         try {
+                            sh 'echo ${WORKSPACE}'
                             sh 'docker-compose up -d'
                             sh '/project/gradlew test'
                             sh 'docker-compose down'
