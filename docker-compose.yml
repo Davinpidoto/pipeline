@@ -10,6 +10,6 @@ services:
   app:
     image: openjdk:8
     volumes:
-      - $WORKSPACE:/project
+      - "${WORKSPACE}:/project"
     links:
       - db
