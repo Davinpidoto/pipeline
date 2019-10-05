@@ -12,7 +12,7 @@ pipeline {
                 script {
                     withEnv(["WORK=${WORKSPACE}"]) {
                         try {
-                            sh 'docker-compose run app /project/gradlew test'
+                            sh 'docker-compose run app bash /project/gradlew test'
                         }
                         finally {
                             junit '**/build/test-results/test/*.xml'
