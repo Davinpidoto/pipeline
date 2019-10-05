@@ -12,10 +12,11 @@ pipeline {
                 script {
                     withEnv(["WORK=${WORKSPACE}"]) {
                         try {
-                            sh 'ls ${WORKSPACE}'
-                            sh 'docker-compose up -d'
-                            sh './gradlew test'
-                            sh 'docker-compose down'
+                            sh 'echo ${WORKSPACE}'
+                            sh 'echo ${PWD}'
+//                            sh 'docker-compose up -d'
+//                            sh '/project/gradlew test'
+//                            sh 'docker-compose down'
                         }
                         finally {
                             junit '**/build/test-results/test/*.xml'
