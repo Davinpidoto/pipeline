@@ -10,13 +10,11 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-                    withEnv(["WORK=${WORKSPACE}"]) {
-                        try {
-                            sh 'docker-compose run app /project/gradlew -p /project test'
-                        }
-                        finally {
-                            junit '**/build/test-results/test/*.xml'
-                        }
+                    try {
+                        sh 'docker-compose run --rm app /project/gradlew -p /project clean test'
+                    }
+                    finally {
+                        junit '**/build/test-results/test/*.xml'
                     }
                 }
             }
