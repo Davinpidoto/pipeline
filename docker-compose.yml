@@ -10,6 +10,6 @@ services:
   app:
     image: openjdk
     volumes:
-      - ${WORK}:/project
+      - ${WORK}:
     links:
       - db
