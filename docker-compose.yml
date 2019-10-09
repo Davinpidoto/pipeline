@@ -1,0 +1,15 @@
+version: '3.3'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: pipeline
+      MYSQL_ROOT_PASSWORD: password
+  app:
+    image: openjdk:8
+    volumes:
+      -  $WORKSPACE:/project
+    links:
+      - db
